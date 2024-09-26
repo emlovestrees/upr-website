@@ -1,0 +1,80 @@
+<script>
+    var total = 100000; //running total updated through mm/dd/yyyy hh:mm:ss
+        
+    var goal = 200000; //set the overall drive goal
+    var countDownDate = new Date("May 15, 2024 16:59:59").getTime(); //Set the date & time the drive ends
+    </script>
+    
+    
+    <div id="progress-container" style="height: 80px;background: #eee;padding:1px;">
+        <a href="LINK TO YOUR FORM" target="_blank" style="color:#000;">
+            <div style="float: left; font-weight:bold; padding:20px;"><span class="no-mobile">SPRING </span>MEMBERSHIP DRIVE  
+                <br><span id="dollars-remaining" style="font-weight:normal;font-size:smaller;"></span>
+            </div>
+            <div style="float: right;font-weight:bold;text-align: right;  padding:5px; margin:23px 0 0 0;border:1px solid;border-radius:10px;background:#C41331;color:#fff;"> &#x2665; DONATE NOW! 
+                <br><span id="days-remaining" style="font-weight: normal;font-size: small;"> </span>
+            </div>
+            <div id="progress-bar" style="background: linear-gradient(90deg, #00C800 10%, #3c9e3c); height: 100%; display: block; animation-name: progress-slide; animation-duration: 3s;">
+            </div>
+        </a>
+    </div>
+    
+    
+    <style>
+        @media only screen and (max-width: 600px) {
+            .no-mobile {display: none;}
+            .donate-now {margin-top:10px;}
+        }
+        @keyframes progress-slide {
+            0%   {width:0;}
+        }
+    </style>
+    
+    <script>
+        var leftToGoal = goal - total;
+        var percentToGoal = total / goal * 100;
+        document.getElementById('progress-bar').style.width = (percentToGoal + '%'); 
+        if (leftToGoal < 0) {
+            document.getElementById('dollars-remaining').innerHTML = ('Goal achieved. Thank you!');
+        } 
+        else {
+            document.getElementById('dollars-remaining').innerHTML = ('$' + leftToGoal.toLocaleString( undefined ) + ' remaining <span class="nomobile">to goal</span> ');
+        }
+    </script>
+    
+    <script>
+      //end date & time set above
+        
+      // Update the count down every 1 second
+      var x = setInterval(function() {
+    
+      // Get today's date and time
+      var now = new Date().getTime();
+        
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+        
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+      // Output the result in an element with id="days-remaining"
+      
+      if (hours < 1) {
+          document.getElementById("days-remaining").innerHTML = minutes + " minutes left" ;  }
+      else if (days < 1) {   
+      document.getElementById("days-remaining").innerHTML = hours + " hours left" ;  }
+      else if (days < 2 ) {
+      document.getElementById("days-remaining").innerHTML = days + " day left" ;     clearInterval(x); }  
+      else {  
+      document.getElementById("days-remaining").innerHTML = days + " days left" ;     clearInterval(x); }
+        
+      // If the count down is over, write some text 
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("days-remaining").innerHTML = "";
+      }
+    }, 1000);
+    </script>
