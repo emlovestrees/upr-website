@@ -1,0 +1,45 @@
+<script>
+    var total = 24472.78; //running total updated through September 27, 2024 23:59:59
+        
+    var goal = 60000; //set the overall drive goal
+    
+    </script>
+    
+    
+    <div id="progress-container" style="height: 80px;background: #eee;padding:1px;">
+        <a href="https://donate.nprstations.org/upr/support-upr" target="_blank" style="color:#000;">
+            <div style="float: left; font-weight:bold; padding:20px;"><span class="no-mobile">HELP US REACH OUR FALL </span>FUNDRAISING GOAL!  
+                <br><span id="dollars-remaining" style="font-weight:normal;font-size:smaller;"></span>
+            </div>
+            <div style="float: right;font-weight:bold;text-align: right;  padding:5px; margin:23px 0 0 0;border-radius:10px;background:#D63230;color:#fff;"> &#x2665; DONATE NOW! 
+                <br><span id="days-remaining" style="font-weight: normal;font-size: small;"> </span>
+            </div>
+            <div id="progress-bar" style="background-color:#b0d43b; height: 100%; display: block; animation-name: progress-slide; animation-duration: 3s;">
+            </div>
+        </a>
+    </div>
+    
+    
+    <style>
+        @media only screen and (max-width: 600px) {
+            .no-mobile {display: none;}
+            .donate-now {margin-top:10px;}
+        }
+        @keyframes progress-slide {
+            0%   {width:0;}
+        }
+    </style>
+    
+    <script>
+        var leftToGoal = goal - total;
+        var percentToGoal = total / goal * 100;
+        document.getElementById('progress-bar').style.width = (percentToGoal + '%'); 
+        if (leftToGoal < 0) {
+            document.getElementById('dollars-remaining').innerHTML = ('Goal achieved. Thank you!');
+        } 
+        else {
+            document.getElementById('dollars-remaining').innerHTML = ('$' + leftToGoal.toLocaleString( undefined ) + ' remaining <span class="nomobile">to goal</span> ');
+        }
+    </script>
+    
+    
