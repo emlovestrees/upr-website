@@ -86,6 +86,17 @@
         else {
             document.getElementById('dollars-remaining').innerHTML = ('$' + leftToGoal.toLocaleString( undefined ) + ' remaining <span class="nomobile">to goal</span> ');
         }
+
+        var leftToGiftGoal = giftGoal - giftTotal;
+        var percentToGiftGoal = giftTotal / giftGoal * 100;
+        document.getElementById('progress-bar').style.width = (percentToGiftGoal + '%');
+        if (leftToGiftGoal < 0) {
+            document.getElementById('gifts-remaining').innerHTML = ('Thanks for helping us reach our goal!');
+        }
+        else {
+            document.getElementById('gifts-remaining').innerHTML = (leftToGiftGoal.toLocaleString( undefined) + ' gifts remaining <span class="nomobile">to goal</span> ');
+        }
+        
     </script>
     
     <script>
