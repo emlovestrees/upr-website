@@ -14,7 +14,7 @@
         <div id="contains-meters"> <!--This div has the progress bars inside it-->
             <div class="progress-container">
                 <a href="https://donate.nprstations.org/upr/support-upr" target="_blank" style="color:#000;">
-                    <div style="float: left; font-weight:bold; padding:20px;"><span class="no-mobile">HELP US REACH OUR </span>DOLLAR GOAL
+                    <div style="float: left; font-weight:bold; padding:20px;"><span class="no-mobile">OUR </span>DOLLAR GOAL
                         <br><span id="dollars-remaining" style="font-weight:normal;font-size:smaller;"></span>
                     </div>
                     <div id="progress-bar">
@@ -23,7 +23,7 @@
             </div>
             <div class="progress-container"> <!--This is a progress meter for how many gifts we receive-->
                 <a href="https://donate.nprstations.org/upr/support-upr" target="_blank" style="color:#000;">
-                    <div style="float: left; font-weight:bold; padding:20px;"><span class="no-mobile">HELP US REACH OUR </span>GIFT GOAL 
+                    <div style="float: left; font-weight:bold; padding:20px;"><span class="no-mobile">OUR </span>CEREAL GOAL 
                         <br><span id="gifts-remaining" style="font-weight:normal;font-size:smaller;"></span>
                     </div>
                     <div id="progress-bar2">
@@ -49,6 +49,7 @@
 
         #buildout {
             background-color: #FBE2B1;
+            padding: 20px;
         }
 
         #contains-meters {
@@ -100,7 +101,7 @@
             document.getElementById('gifts-remaining').innerHTML = ('Thanks for helping us reach our goal!');
         }
         else {
-            document.getElementById('gifts-remaining').innerHTML = (leftToGiftGoal.toLocaleString( undefined) + ' gifts remaining <span class="nomobile">to goal</span> ');
+            document.getElementById('gifts-remaining').innerHTML = (leftToGiftGoal.toLocaleString( undefined) + ' boxes remaining <span class="nomobile">to goal</span> ');
         }
         
     </script>
